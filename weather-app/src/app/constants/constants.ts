@@ -1,0 +1,1 @@
+export const DARKSKY_API_KEY = "674ac5c2df8f31823e3722823eaa6089";
