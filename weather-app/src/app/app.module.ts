@@ -1,31 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WeatherViewComponent } from './weather-view-component/weather-view-component';
-import { createCustomElement } from '@angular/elements';
+import { WeatherComponent} from './weather-view-component/weather.component'
+import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
+import { ForecastService} from './forecast.service'
+
+
+const appRoutes: Routes = [
+  { path: 'weather', component: WeatherComponent },
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherViewComponent
+    WeatherComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WeatherViewComponent
-  ],
-  entryComponents:[
-    WeatherViewComponent
-  ],
-  providers: [],
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes) ],
+  providers: [ ForecastService],
   bootstrap: [AppComponent]
 })
-export class AppModule { constructor(private injector: Injector) {
-  const weatherView = createCustomElement(WeatherViewComponent, { injector });
-  customElements.define('weather-view', weatherView);
-}
+export class AppModule {
 
-ngDoBootstrap() {}
-}
+ 
+ }
