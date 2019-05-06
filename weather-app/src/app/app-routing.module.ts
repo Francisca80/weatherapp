@@ -6,7 +6,7 @@ import { WeatherComponent } from './weather-view-component/weather.component';
 const appRoutes: Routes = [
 
   { path: 'weather', component: WeatherComponent },
-  { path:'',redirectTo: '/weather', pathMatch: 'full'}
+  { path:'',redirectTo: '/', pathMatch: 'full'}
 ];
 
 @NgModule({

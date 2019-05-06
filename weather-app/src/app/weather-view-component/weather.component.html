@@ -1,21 +1,26 @@
-<p>Local Weather</p>
-
-<h1>
-    <i class="wi wi-barometer"></i> Your Local Weather Forecast
-  </h1>
+<div   class= "container">
+<div   class= "sevenday">
+<h2>
+    <mat-icon svgIcon="Sun"></mat-icon> Your Local Weather Forecast <mat-icon svgIcon="Sun"></mat-icon>
+  </h2>
   
-  <p>Current Position: {{ lat }} / {{ lng }} </p>
+  <p>Current Position: {{ lat }} / {{ lng }}</p>
   
   <button (click)="currentForecast()">Get Forecast</button>
   
-  <h1>Seven Day Forecast</h1>
+
+
+  <h2>Seven Day Forecast</h2>
   
   <div *ngIf="forecastWeather | async as f" class="columns">
       <div *ngFor="let day of f.daily.data" class="column">
   
           <i [class]="weatherIcon(day.icon)"></i>
+          <h3>{{ day.temperatureMax  }}</h3>
           <h3>{{ day.time * 1000 | date: 'MMM d'  }}</h3>
           <p>{{ day.summary }}</p>
   
       </div>
   </div>
+</div>
+</div>

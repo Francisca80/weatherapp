@@ -10,7 +10,7 @@ import { tap } from "rxjs/operators";
 
 })
 export class WeatherComponent implements OnInit{
-
+ 
   lat: number;
   lng: number;
   forecastWeather: Observable<any>;
@@ -38,6 +38,8 @@ export class WeatherComponent implements OnInit{
   .pipe(tap(data => console.log(data)))
   }
 
+ 
+
 weatherIcon(icon) {
   switch (icon) {
     case 'partly-cloudy-day':
@@ -47,7 +49,7 @@ weatherIcon(icon) {
     case 'partly-cloudy-night':
       return 'wi wi-night-partly-cloudy'
     default:
-      return `wi wi-day-sunny`
+      return (`wi wi-day-sunny`)
   }
 }
 }
