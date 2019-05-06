@@ -10,8 +10,8 @@ import * as constants from '../../src/app/constants/constants';
 
 
 export class ForecastService {
-
-   url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${constants.DARKSKY_API_KEY}/${lat},${lng}`;
+ 
+   url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${constants.DARKSKY_API_KEY}/`;
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,9 @@ export class ForecastService {
     params = params.set('lat', lat.toString() )
     params = params.set('lng', lng.toString() )
     console.log(lat,lng)
-    return this.http.get(this.url, { params:params })
+
+    return this.http.get(this.url, {params:params})
+    
   
   }
 }
